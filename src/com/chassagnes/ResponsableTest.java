@@ -8,6 +8,7 @@ class ResponsableTest {
 
     Responsable responsable = new Responsable("Nom", "Prenom", "Adresse", 0, (float) 4.2, 5);
 
+
     @Test
     void get_nom() {
         assertEquals("Nom",responsable.get_nom());
@@ -31,6 +32,11 @@ class ResponsableTest {
     @Test
     void get_nbHeures() {
         assertEquals((float)4.2,responsable.get_nbHeures());
+    }
+
+    @Test
+    void get_prime(){
+        assertEquals(5, responsable.get_prime());
     }
 
     @Test

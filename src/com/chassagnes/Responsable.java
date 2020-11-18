@@ -32,6 +32,9 @@ public class Responsable extends Enseignant {
     public Float get_nbHeures(){
         return _nbHeures;
     }
+    public int get_prime(){
+        return _prime;
+    }
 
     @Override
     public String toString(){
@@ -40,18 +43,8 @@ public class Responsable extends Enseignant {
         return unResponsable;
     }
 
-    public boolean EchelonValide()  {
-        if (_echelon>1 && _echelon<11){
-            return true;
 
-        }
-        else  {
-            return false;
-        }
-    }
-    public double GetPrixHeure(int Echelon) {
-        return _tauxSalaire[Echelon];
-    }
+
     public double CalculSalaire(){
         double txsalaire = this.GetPrixHeure(_echelon);
         if (EchelonValide() == true){
