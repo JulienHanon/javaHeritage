@@ -1,29 +1,18 @@
 package com.chassagnes;
 
-public class Enseignant extends Personne{
+public class Responsable extends Enseignant {
 
     //Attribut privée
-    protected int _echelon;
-    protected Float _nbHeures;
-    protected double[] _tauxSalaire = new double[]{40,42,43,44,46,50,52,54,60,65};
+    private int _prime;
 
     //Constructeur
-    public Enseignant(String Nom, String Prenom, String Adresse, int Echelon, Float nbHeures){
-        super(Nom, Prenom, Adresse);
-        _echelon = Echelon;
-        _nbHeures = nbHeures;
+
+    public Responsable(String Nom, String Prenom, String Adresse, int Echelon, Float nbHeures, int Prime){
+        super(Nom, Prenom, Adresse, Echelon, nbHeures);
+        _prime = Prime;
 
     }
-
-    public Enseignant(String Nom, String Prenom, String Adresse, int Echelon) {
-        super(Nom, Prenom, Adresse);
-        _echelon = Echelon;
-    }
-
-
     //Propriétés
-
-
     public String get_nom(){
         return _nom;
     }
@@ -44,13 +33,13 @@ public class Enseignant extends Personne{
         return _nbHeures;
     }
 
-
     @Override
     public String toString(){
-        String unEnseignant;
-        unEnseignant ="Nom : "+ _nom+" Prenom : "+_prenom+" Adresse : "+_adresse+" Echelon : "+_echelon+" Nombre d'heure : "+_nbHeures;
-        return unEnseignant;
+        String unResponsable;
+        unResponsable ="Nom : "+ _nom+" Prenom : "+_prenom+" Adresse : "+_adresse+" Echelon : "+_echelon+" Nombre d'heure : "+_nbHeures+" Prime : "+_prime;
+        return unResponsable;
     }
+
     public boolean EchelonValide()  {
         if (_echelon>1 && _echelon<11){
             return true;
@@ -66,7 +55,7 @@ public class Enseignant extends Personne{
     public double CalculSalaire(){
         double txsalaire = this.GetPrixHeure(_echelon);
         if (EchelonValide() == true){
-            return txsalaire * _nbHeures;
+            return txsalaire * _nbHeures *_prime;
         }
         else {
             return 0;

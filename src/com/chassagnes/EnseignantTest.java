@@ -37,7 +37,7 @@ class EnseignantTest {
 
     @Test
     void testToString() {
-        assertEquals("Nom : Nom Prenom : Prenom Adresse : Adresse Echelon : " +0,enseignant.toString());
+        assertEquals("Nom : Nom Prenom : Prenom Adresse : Adresse Echelon : " +0+" Nombre d'heure : "+4.2,enseignant.toString());
     }
 
     @Test
